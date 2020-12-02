@@ -1,7 +1,7 @@
 package ObjectGame;
 
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,6 +16,7 @@ public class ReadFile {
         }
         return singleton;
     }
+
     public char[][] Map(){
         File file = new File("asset/Map/Lv1.txt");
         char[][]Map ;
@@ -47,14 +48,14 @@ public class ReadFile {
         }
         return Map1;
     }
-    public static BufferedImage readImage(String s){
-        BufferedImage image = null;
+    public static Image readImage(String s){
+        Image image = null;
         try {
             image = ImageIO.read(new File(s));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return  image;
+        return  image.getScaledInstance(32,32, Image.SCALE_DEFAULT);
     }
 
 

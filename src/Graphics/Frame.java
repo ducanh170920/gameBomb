@@ -3,10 +3,11 @@ package Graphics;
 import ObjectGame.ReadFile;
 
 import javax.swing.*;
+import java.awt.event.KeyListener;
 
 public class Frame extends JFrame {
-    public static int height = 1000;
-    public static int width = 1000;
+    public static int width = 32*32;
+    public static int height = 14*32;
     private  Jpanel jpanel = new Jpanel();
     ReadFile readFile = ReadFile.GetInstance() ;
 
@@ -18,6 +19,7 @@ public class Frame extends JFrame {
         setVisible(true);
         add(jpanel);
         readFile.Map();
+        addKeyListener(jpanel);
 
     }
 }
